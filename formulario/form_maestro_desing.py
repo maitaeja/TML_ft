@@ -48,6 +48,7 @@ class FormularioMaestroDesing(ft.Container):
 
     def config_window(self):
         self.ventana.title = "Integridad y Corrosión"
+        self.ventana.window.icon="./imagenes/ImagenTML.ico"
         w, h= 1024, 600
         self.ventana.window.width = w
         self.ventana.window.height = h
