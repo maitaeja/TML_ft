@@ -27,7 +27,7 @@ if __name__ == "__main__":
     ft.app(
         target=main,
         assets_dir="imagenes",
-        view=ft.AppView.WEB_BROWSER,
+        #view=ft.AppView.WEB_BROWSER,
         host="0.0.0.0",
         port=port
         )
