@@ -161,6 +161,9 @@ def crear_vista_gestion(
                 alignment=ft.MainAxisAlignment.CENTER,
                 spacing=15,
             ),
+            
+            ft.Divider(height=10, color=COLOR_TEXTO_TITULO),
+
             ft.Container(
                 content=texto_control,
                 padding=ft.Padding.only(left=40, right=40),
@@ -180,7 +183,7 @@ class GestionDatosView(ft.Container):
         self.content = crear_vista_gestion(
             "Gestión de datos (CML vs. TML)",
             [
-                ft.TextSpan("En el ámbito de integridad mecánica, los TML's se agrupan o forman parte de los CML's. Aunque en ocasiones se usan como sinónimos, técnicamente:\n\n"),
+                ft.TextSpan("En el ámbito de integridad mecánica, los TML's se agrupan o forman parte de los CML's. Aunque en ocasiones se usan como sinónimos, técnicamente:\n"),
                 ft.TextSpan("CML: ", ft.TextStyle(weight=ft.FontWeight.BOLD)),
                 ft.TextSpan("es el área general o zona que se monitorea.\n"),
                 ft.TextSpan("TML: ", ft.TextStyle(weight=ft.FontWeight.BOLD)),

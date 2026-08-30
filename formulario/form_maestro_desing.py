@@ -48,7 +48,6 @@ class FormularioMaestroDesing(ft.Container):
 
     def config_window(self):
         self.ventana.title = "Integridad y Corrosión"
-        self.ventana.window.icon="./imagenes/ImagenTML.ico"
         w, h= 1024, 600
         self.ventana.window.width = w
         self.ventana.window.height = h
@@ -192,12 +191,25 @@ class FormularioMaestroDesing(ft.Container):
 
 
     def panel_lateral_d(self):
+        self.imagen_inicio=ft.Container(
+            content=ft.Image(
+                src="./imagenes/ImagenTML.ico",
+                fit=ft.BoxFit.CONTAIN,
+            ),
+            #width=800,
+            #height=700,
+            border_radius=20,
+            clip_behavior=ft.ClipBehavior.HARD_EDGE
+        )
         self.barra_lateral_d = ft.Container(
         bgcolor = COLOR_CUERPO_PRINCIPAL,
         expand= True,
         height=800,
-        padding = 30
+        padding = 30,
+        alignment=ft.Alignment(0,-1),
+        content=self.imagen_inicio
         )
+        return self.barra_lateral_d
 
 ##################################################################################################################################################
     # ----------------------------------------------------------------------- #
