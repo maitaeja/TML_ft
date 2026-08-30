@@ -16,21 +16,28 @@ except AttributeError:
 
 def main(page: ft.Page):
     page.title = "Integridad y Corrosión"
-    page.padding = 0    # Elimina bordes blancos innecesarios para que todo encaje perfecto  
-    page.spacing=0
-    app = FormularioMaestroDesing(page)     # Instanciamos el diseño maestro completo
-    page.add(app)
-    page.update()
+    page.padding = 0
+    page.spacing = 0
 
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8080))
-    ft.app(
-        target=main,
-        assets_dir="imagenes",
-        #view=ft.AppView.WEB_BROWSER,
-        host="0.0.0.0",
-        port=port
-        )
+    formulario = FormularioMaestroDesing(page)
 
+    def on_resize(e):
+        # Validar que page.width no sea None y aplicar responsividad
+        ancho = page.width if page.width is not None else 1000
+        if hasattr(formulario, "barra_lateral_i"):
+            formulario.barra_lateral_i.visible = (ancho >= 768)
+            page.update()
 
+    page.on_resize = on_resize
+    page.add(formulario)
 
+# Obtener puerto configurado por Render o usar 8080 por defecto
+port = int(os.environ.get("PORT", 8080))
+
+ft.app(
+    target=main,
+    assets_dir="imagenes",
+    view=ft.AppView.WEB_BROWSER,
+    host="0.0.0.0",
+    port=port
+)
