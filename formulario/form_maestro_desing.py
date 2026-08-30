@@ -193,7 +193,7 @@ class FormularioMaestroDesing(ft.Container):
     def panel_lateral_d(self):
         self.imagen_inicio=ft.Container(
             content=ft.Image(
-                src="./imagenes/ImagenTML.png",
+                src="ImagenTML.png",
                 fit=ft.BoxFit.CONTAIN,
             ),
             #width=800,
